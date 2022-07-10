@@ -9,6 +9,7 @@ namespace SampleProjectLeave.IRepository
 {
     interface IEmployee
     {
-        List<GetEmpLeaveMaster> GetEmpLeaveMasters(Int32? EmpCode);
+        List<GetEmpLeaveMaster> GetEmpLeaveMasters(Int32? EmpCode,string input);
+        string InsertEmpLeaveMasters(InsertEmpLeaveMaster insertEmpLeave);
     }
 }
