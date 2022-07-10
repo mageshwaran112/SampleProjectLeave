@@ -1,0 +1,51 @@
+﻿@model SampleProjectLeave.Models.InsertEmpLeaveMaster
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Leave Apply</title>
+    <meta charset="utf-8" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+   
+</head>
+<body>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <td style="font-size:medium;font-weight:bold">@Html.Label("Employee Name : ")</td>
+                <td>@Html.DropDownListFor(x => x.EmpCode, new SelectList(ViewBag.EmpDetails, "EmpCode", "EmpName", "--Select--"), new { @class = "form-control" })</td>
+                <td style="font-size:large;font-weight:bold">@Html.Label("Leave Date : ")</td>
+                <td>  @Html.TextBoxFor(x => x.LeaveAppliedDate, new { htmlAttributes = new { @class = "datepicker" } })   </td>
+                <td><input type="submit" name="Apply" value="Apply" /> </td>
+                <td><input type="button" name="Reset" value="Reset" /> </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @section scripts
+    {
+        <script>
+            $(document).ready(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: "dd-mm-yy",
+                    changemonth: true,
+                    changeyear: true
+                });
+            });
+        </script>
+    }
+
+</body>
+</html>
